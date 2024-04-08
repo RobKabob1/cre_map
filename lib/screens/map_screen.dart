@@ -40,14 +40,14 @@ class MapScreen extends StatelessWidget {
           const DraggableBottomSheet(),
         ],
       ),
-      floatingActionButton: Column(
+      floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
             onPressed: () {},
             child: const Icon(Icons.add),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(width: 16),
           FloatingActionButton(
             onPressed: () {},
             child: const Icon(Icons.share),
