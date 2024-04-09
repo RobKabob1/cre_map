@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../widgets/main_app_bar.dart';
+import 'map_screen.dart';
 
 class CollectionsScreen extends StatelessWidget {
   const CollectionsScreen({super.key});
@@ -6,9 +8,11 @@ class CollectionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Collections'),
-        centerTitle: true,
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(100),
+        child: MainAppBar(
+          title: "Collections",
+        ),
       ),
       body: Column(
         children: [
@@ -49,63 +53,71 @@ class CollectionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.all(8),
-      child: Row(
-        children: [
-          const SizedBox(
-            width: 15,
-          ),
-          Container(
-            width: 75,
-            height: 75,
-            color: Colors.grey[300],
-            child: Image.asset(
-              'assets/images/placeholder_building.jpg',
-              height: 200,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ), // Placeholder for image
-          ),
-          const Expanded(
-            child: Padding(
-              padding: EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Newmark Office Building Search',
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const MapScreen()),
+        );
+      },
+      child: Card(
+        margin: const EdgeInsets.all(8),
+        child: Row(
+          children: [
+            const SizedBox(
+              width: 15,
+            ),
+            Container(
+              width: 75,
+              height: 75,
+              color: Colors.grey[300],
+              child: Image.asset(
+                'assets/images/placeholder_building.jpg',
+                height: 200,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ), // Placeholder for image
+            ),
+            const Expanded(
+              child: Padding(
+                padding: EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Newmark Office Building Search',
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 2),
-                  Row(
-                    children: [
-                      Text(
-                        '15 Properties',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      Text(
-                        ' - ',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      Text(
-                        '4 Favorites',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    ],
-                  ),
-                ],
+                    SizedBox(height: 2),
+                    Row(
+                      children: [
+                        Text(
+                          '15 Properties',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        Text(
+                          ' - ',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        Text(
+                          '4 Favorites',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            width: 15,
-          ),
-        ],
+            const SizedBox(
+              width: 15,
+            ),
+          ],
+        ),
       ),
     );
   }
