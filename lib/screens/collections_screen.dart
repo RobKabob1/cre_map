@@ -9,7 +9,7 @@ class CollectionsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(100),
+        preferredSize: Size.fromHeight(50),
         child: MainAppBar(
           title: "Collections",
         ),

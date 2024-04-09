@@ -1,3 +1,4 @@
+import 'package:cre_map/screens/export_screen.dart';
 import 'package:cre_map/widgets/main_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -5,6 +6,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'property_info_screen.dart';
+import 'sharing_screen.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -19,7 +21,7 @@ class _MapScreenState extends State<MapScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(100),
+        preferredSize: Size.fromHeight(50),
         child: MainAppBar(
           title: "Map",
         ),
@@ -61,7 +63,22 @@ class _MapScreenState extends State<MapScreen> {
           ),
           const SizedBox(width: 16),
           FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ExportScreen()),
+              );
+            },
+            child: const Icon(Icons.save_alt),
+          ),
+          const SizedBox(width: 16),
+          FloatingActionButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SharingScreen()),
+              );
+            },
             child: const Icon(Icons.share),
           ),
         ],

@@ -19,17 +19,20 @@ class _MainAppBarState extends State<MainAppBar> {
       title: Text(widget.title),
       backgroundColor: Colors.transparent,
       centerTitle: true,
-      actions: <Widget>[
-        IconButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const SettingsScreen()),
-            );
-          },
-          icon: const Icon(Icons.more_vert),
-        ),
-      ],
+      actions: widget.title == "Profile & Settings"
+          ? []
+          : <Widget>[
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SettingsScreen()),
+                  );
+                },
+                icon: const Icon(Icons.more_vert),
+              ),
+            ],
     );
   }
 }

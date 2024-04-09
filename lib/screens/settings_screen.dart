@@ -1,6 +1,8 @@
 import 'package:cre_map/utils/settings_options.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/main_app_bar.dart';
+
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
@@ -8,9 +10,11 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var keys = settingsOptions.keys.toList();
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Profile & Settings'),
-        centerTitle: true,
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(50),
+        child: MainAppBar(
+          title: "Profile & Settings",
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
