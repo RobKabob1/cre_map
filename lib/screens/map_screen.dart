@@ -1,12 +1,10 @@
-import 'package:cre_map/screens/export_screen.dart';
 import 'package:cre_map/widgets/main_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import 'property_info_screen.dart';
-import 'sharing_screen.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -16,6 +14,7 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
+  final _key = GlobalKey<ExpandableFabState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,32 +53,65 @@ class _MapScreenState extends State<MapScreen> {
           const DraggableBottomSheet(),
         ],
       ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+      floatingActionButtonLocation: ExpandableFab.location,
+      // floatingActionButton: ExpandableFab(
+      //   key: _key,
+      //   children: [
+      //     FloatingActionButton.small(
+      //       // shape: const CircleBorder(),
+      //       heroTag: null,
+      //       child: const Icon(Icons.edit),
+      //       onPressed: () {},
+      //     ),
+      //     FloatingActionButton.small(
+      //       // shape: const CircleBorder(),
+      //       heroTag: null,
+      //       child: const Icon(Icons.search),
+      //       onPressed: () {},
+      //     ),
+      //     FloatingActionButton.small(
+      //       // shape: const CircleBorder(),
+      //       heroTag: null,
+      //       child: const Icon(Icons.share),
+      //       onPressed: () {
+      //         final state = _key.currentState;
+      //         if (state != null) {
+      //           debugPrint('isOpen:${state.isOpen}');
+      //           state.toggle();
+      //         }
+      //       },
+      //     ),
+      //   ],
+      // ),
+      floatingActionButton: ExpandableFab(
+        key: _key,
+        distance: 150,
         children: [
           FloatingActionButton(
-            onPressed: () {},
+            heroTag: "add",
             child: const Icon(Icons.add),
+            onPressed: () {},
           ),
-          const SizedBox(width: 16),
           FloatingActionButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ExportScreen()),
-              );
-            },
-            child: const Icon(Icons.save_alt),
+            heroTag: "link",
+            child: const Icon(Icons.link),
+            onPressed: () {},
           ),
-          const SizedBox(width: 16),
           FloatingActionButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const SharingScreen()),
-              );
-            },
+            heroTag: "share",
             child: const Icon(Icons.share),
+            onPressed: () {
+              final state = _key.currentState;
+              if (state != null) {
+                debugPrint('isOpen:${state.isOpen}');
+                state.toggle();
+              }
+            },
+          ),
+          FloatingActionButton(
+            heroTag: "download",
+            child: const Icon(Icons.download),
+            onPressed: () {},
           ),
         ],
       ),
