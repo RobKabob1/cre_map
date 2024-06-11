@@ -71,8 +71,8 @@ class CollectionCard extends StatelessWidget {
               width: 75,
               height: 75,
               color: Colors.grey[300],
-              child: Image.asset(
-                'assets/images/placeholder_building.jpg',
+              child: Image.network(
+                'https://images1.loopnet.com/i2/hmrJzZQU-NGPH4J6AF-N8mUb7I0EyKwq3AoH-62SenQ/112/image.jpg',
                 height: 200,
                 width: double.infinity,
                 fit: BoxFit.cover,

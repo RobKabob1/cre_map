@@ -39,6 +39,7 @@ dependencies:
   latlong2: ^0.9.1
   url_launcher: ^6.2.5
   flutter_expandable_fab: ^2.0.0
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:

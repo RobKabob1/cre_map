@@ -54,35 +54,6 @@ class _MapScreenState extends State<MapScreen> {
         ],
       ),
       floatingActionButtonLocation: ExpandableFab.location,
-      // floatingActionButton: ExpandableFab(
-      //   key: _key,
-      //   children: [
-      //     FloatingActionButton.small(
-      //       // shape: const CircleBorder(),
-      //       heroTag: null,
-      //       child: const Icon(Icons.edit),
-      //       onPressed: () {},
-      //     ),
-      //     FloatingActionButton.small(
-      //       // shape: const CircleBorder(),
-      //       heroTag: null,
-      //       child: const Icon(Icons.search),
-      //       onPressed: () {},
-      //     ),
-      //     FloatingActionButton.small(
-      //       // shape: const CircleBorder(),
-      //       heroTag: null,
-      //       child: const Icon(Icons.share),
-      //       onPressed: () {
-      //         final state = _key.currentState;
-      //         if (state != null) {
-      //           debugPrint('isOpen:${state.isOpen}');
-      //           state.toggle();
-      //         }
-      //       },
-      //     ),
-      //   ],
-      // ),
       floatingActionButton: ExpandableFab(
         key: _key,
         distance: 150,
@@ -164,8 +135,8 @@ class PropertyCards extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Image.asset(
-                  'assets/images/placeholder_building.jpg',
+                Image.network(
+                  'https://images1.loopnet.com/i2/hmrJzZQU-NGPH4J6AF-N8mUb7I0EyKwq3AoH-62SenQ/112/image.jpg',
                   height: 200,
                   width: double.infinity,
                   fit: BoxFit.cover,
