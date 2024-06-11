@@ -35,14 +35,9 @@ class CollectionsScreen extends StatelessWidget {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton.extended(
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
         onPressed: () {},
-        label: const Row(
-          children: [
-            Icon(Icons.add),
-            Text('New Collection'),
-          ],
-        ),
       ),
     );
   }
