@@ -49,6 +49,7 @@ class _PropertyInfoScreenState extends State<PropertyInfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(100),
         child: MainAppBar(
@@ -76,57 +77,34 @@ class _PropertyInfoScreenState extends State<PropertyInfoScreen> {
               ),
             ),
           ),
-          SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(18, 10, 20, 0),
-            child: Column(
-              children: propertyMap.entries
-                  .map((entry) => ListTile(
-                        contentPadding: const EdgeInsets.all(0),
-                        title: Text(
-                          entry.key,
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        trailing: Text(
-                          entry.value.toString(),
-                          style: const TextStyle(fontSize: 15),
-                        ),
-                      ))
-                  .toList(),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.fromLTRB(18, 10, 20, 0),
+                child: Column(
+                  children: propertyMap.entries
+                      .map((entry) => ListTile(
+                            contentPadding: const EdgeInsets.all(0),
+                            title: Text(
+                              entry.key,
+                              style: const TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            trailing: Text(
+                              entry.value.toString(),
+                              style: const TextStyle(fontSize: 15),
+                            ),
+                          ))
+                      .toList(),
+                ),
+              ),
             ),
-          )
-          // child: ListView.separated(
-          //   itemCount: _strings.length,
-          //   itemBuilder: (context, index) {
-          //     return ListTile(
-          //       title: Text(_strings[index]),
-          //       trailing: const Text("something"),
-          //     );
-          //   },
-          //   separatorBuilder: (context, index) {
-          //     return const Divider();
-          //   },
-          // ),
-          // return Card(
-          //   child: Row(
-          //     crossAxisAlignment: CrossAxisAlignment.center,
-          //     children: [
-          //       Text(_strings[index]),
-          //       Expanded(child: SizedBox()),
-          //       Icon(Icons.settings),
-          //     ],
-          //   ),
-          // );
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
-        label: const Row(
-          children: [
-            Icon(Icons.favorite),
-            Padding(padding: EdgeInsets.all(5)),
-            Text('Favorite'),
-          ],
-        ),
+        label: const  Icon(Icons.favorite),
       ),
     );
   }
